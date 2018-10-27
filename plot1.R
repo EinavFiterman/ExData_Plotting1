@@ -7,8 +7,10 @@ data <- read.table("./exdata%2Fdata%2Fhousehold_power_consumption/household_powe
                  sep = ";")
 names(data) <- read.table("./exdata%2Fdata%2Fhousehold_power_consumption/household_power_consumption.txt", 
                           nrows = 1, sep = ";", stringsAsFactors = FALSE)
+# open PNG file
+png("plot1.png", width = 480, height = 480) 
 
 # create plot
 hist(data$Global_active_power, main = "Global Active power", xlab = "Global Active power (kilowatts)", col = "red")
-dev.copy(png, file = "plot1.png") # copy plot1 to a PNG file
+
 dev.off()

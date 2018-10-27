@@ -9,6 +9,8 @@ names(data) <- read.table("./exdata%2Fdata%2Fhousehold_power_consumption/househo
                           nrows = 1, sep = ";", stringsAsFactors = FALSE)
 
 datetime <- as.POSIXct(paste(as.character(data$Date), as.character(data$Time)), format="%d/%m/%Y %H:%M:%S")
+# open PNG file
+png("plot4.png", width = 480, height = 480) 
 
 par(mfrow = c(2, 2), mar = c(4, 4, 2, 1))
 # create plots
@@ -22,5 +24,5 @@ with(data, {
         plot(datetime ,as.character(Global_reactive_power), type = "l", xlab = "datetime", ylab = "Global_reactive_power")
 })
 
-dev.copy(png, file = "plot4.png") # copy plot4 to a PNG file
+
 dev.off()
